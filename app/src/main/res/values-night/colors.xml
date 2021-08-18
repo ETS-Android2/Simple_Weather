@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="notification_weather_type">#AAA9A9</color>
+    <color name="notification_degrees">#C5C5C5</color>
+    <color name="widget_grey">#F4F4F4</color>
+    <color name="widget_white">#FFFFFF</color>
+</resources>

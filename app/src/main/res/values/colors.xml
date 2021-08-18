@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="white">#FFFFFF</color>
+    <color name="btn_main">#85449DFD</color>
+    <color name="btn_main_pressed">#005AE1</color>
+    <color name="black">#000000</color>
+    <color name="grey">#BABABA</color>
+    <color name="light_grey">#95E6E5E5</color>
+    <color name="dark_white">#ECECEC</color>
+    <color name="dark_grey">#504E4E</color>
+    <color name="recycle_view">#95FDFDFD</color>
+    <color name="swiperefresh">#80000000</color>
+    <color name="red">#FF1100</color>
+    <color name="orange">#FF8920</color>
+    <color name="yellow">#FFE500</color>
+    <color name="light_yellow">#FDFADA</color>
+    <color name="green">#00FF90</color>
+    <color name="light_green">#2FAF00</color>
+    <color name="ligth_blue">#03A9F4</color>
+    <color name="dark_blue">#037DE6</color>
+    <color name="middle_blue">#0059A6</color>
+    <color name="purple">#AB2AC1</color>
+    <color name="blue">#179FFA</color>
+    <color name="hourly_list">#85057DCD</color>
+    <color name="widget_grey">#F4F4F4</color>
+    <color name="widget_white">#FFFFFF</color>
+    <color name="no_gps_color">#50FFFFFF</color>
+    <color name="accuweather">#10FFFFFF</color>
+
+    <color name="color_start">#00FFBF</color>
+    <color name="color_end">#900CFFC2</color>
+
+    <color name="notification_weather_type">#A6373737</color>
+    <color name="notification_degrees">#A62C2C2C</color>
+</resources>

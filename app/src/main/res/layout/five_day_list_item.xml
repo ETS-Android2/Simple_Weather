@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/recycle_view_background"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/five_day_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Пн"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/dark_grey"
+                />
+
+            <TextView
+                android:id="@+id/five_day_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="8/17"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/dark_grey"
+                />
+
+            <TextView
+                android:id="@+id/five_day_day_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="День"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/five_day_img_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/five_day_weather_type_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Переменная облачность, дождь, гроза"
+                android:gravity="center"
+                android:maxLines="4"
+                android:lines="4"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="casual"
+                />
+
+            <TextView
+                android:id="@+id/five_day_day_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15sp"
+                android:text="25 "
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+
+            <TextView
+                android:id="@+id/five_day_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="16.7km/h"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                />
+
+
+
+            <TextView
+                android:id="@+id/five_day_night_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="15 "
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/five_day_night_translate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Ночь"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                />
+
+            <ImageView
+                android:id="@+id/five_day_img_night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/five_day_weather_type_night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="дождь, гроза"
+                android:maxLines="4"
+                android:lines="4"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="casual"
+                />
+            <TextView
+                android:id="@+id/five_day_wind_night"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="16.7km/h"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="@color/dark_grey"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

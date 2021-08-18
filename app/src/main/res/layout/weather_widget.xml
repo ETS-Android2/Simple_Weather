@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_gravity="end"
+        android:gravity="end"
+        android:layout_marginRight="5dp"
+        android:orientation="vertical">
+
+        <TextClock
+            android:id="@+id/textClock_currentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:fontFamily="@font/custom_font"
+            android:format12Hour="hh:mm"
+            android:format24Hour="HH:mm"
+            android:gravity="center"
+            android:textColor="@color/widget_white"
+            android:textSize="30sp" />
+
+        <TextClock
+            android:id="@+id/textClock_currentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/custom_font"
+            android:format12Hour="E, dd MMMM"
+            android:format24Hour="E, dd MMMM"
+            android:gravity="center"
+            android:textColor="@color/widget_grey"
+            android:textSize="14sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/widget_weather_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/widget_weather_icon"
+                android:layout_width="75dp"
+                android:layout_height="55dp" />
+            <TextView
+                android:id="@+id/widget_degrees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/custom_font"
+                android:text=""
+                android:scaleY="2"
+                android:scaleX="1.5"
+                android:textColor="@color/widget_white"
+                android:textSize="23sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/widget_no_gps_icon"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+            <TextView
+                android:id="@+id/widget_city"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:fontFamily="@font/custom_font"
+                android:text=""
+                android:textColor="@color/widget_grey"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/widget_updateTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/custom_font"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/widget_grey"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/widget_weather_type"
+            android:layout_width="180dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:lines="2"
+            android:maxLines="2"
+            android:fontFamily="@font/custom_font"
+            android:gravity="left"
+            android:text=""
+            android:textColor="@color/widget_grey"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>
