@@ -886,7 +886,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                             public void run() {
                                                                                                 try {
                                                                                                     setInitialData(hourlyResponse);
-                                                                                                    dataStorage.setHourlyResponse(hourlyResponse);//
+                                                                                                    dataStorage.setHourlyResponse(hourlyResponse);
                                                                                                     adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList, Weather_Fragment.this);
                                                                                                     recyclerView.setAdapter(adapter);
                                                                                                     if (key != null) {
@@ -1108,8 +1108,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                 }
                                                             }
                                                         });
-                                                    }
-                                                    //Для погоды - конец
+                                                    }                                                  
                                                 } catch (Exception ex) {
                                                 }
                                             }
@@ -1438,7 +1437,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
     private String getHourlyTime(String hourlyTime) {
         String resultData = "";
         for (int i = 1; i < hourlyTime.length(); i++) {
-            // смотрим, был ли слева пробел:
             if ("T".equals(hourlyTime.substring(i - 1, i)))
                 resultData = hourlyTime.substring(i, i + 5);
         }
