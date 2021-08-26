@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -83,6 +84,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
     ScrollView scrollView;
     Constants constants;
     MediaPlayer mPlayer;
+    AudioManager audioManager;
     Handler handler;
     String result = "";
     String resultLocation = "";
@@ -895,6 +897,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
         super.onCreate(savedInstanceState);
         dataStorage = new DataStorage(getActivity());
         constants = new Constants();
+        audioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
     }
 
     class MyTask extends AsyncTask<Void, Void, Void> {
@@ -1704,8 +1707,14 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 1:
                     icon = R.drawable.big_sunny;
                     mainBackground = R.drawable.clear_sky_background;
+
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(0));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -1750,7 +1759,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_showers;
                     mainBackground = R.drawable.showers_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     break;
@@ -1758,7 +1772,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_mostly_cloudy_showers;
                     mainBackground = R.drawable.showers_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     break;
@@ -1766,7 +1785,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_partly_sunny_showers;
                     mainBackground = R.drawable.showers_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     break;
@@ -1774,7 +1798,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_t_storms;
                     mainBackground = R.drawable.t_storm_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(2));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     break;
@@ -1782,7 +1811,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_mostly_cloudy_t_storms;
                     mainBackground = R.drawable.t_storm_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(3));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -1795,7 +1829,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_partly_sunny_t_storms;
                     mainBackground = R.drawable.t_storm_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(3));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -1808,7 +1847,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     icon = R.drawable.big_rain;
                     mainBackground = R.drawable.rain_background;
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(4));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     break;
@@ -1817,7 +1861,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
                     stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(5));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 19");
@@ -1827,7 +1876,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 20");
@@ -1837,7 +1891,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 21");
@@ -1847,7 +1906,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 22");
@@ -1857,7 +1921,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 23");
@@ -1871,7 +1940,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 25");
@@ -1881,7 +1955,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.rain_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 26");
@@ -1891,7 +1970,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.rain_with_snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 29");
@@ -1909,7 +1993,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.windy_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(5));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 32");
@@ -1919,7 +2008,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.clear_sky_night;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(7));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                         @Override
@@ -1953,7 +2047,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.showers_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 39");
@@ -1963,7 +2062,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.showers_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 40");
@@ -1973,7 +2077,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.t_storm_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(2));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 41");
@@ -1983,7 +2092,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.t_storm_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(2));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 42");
@@ -1993,7 +2107,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(5));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 43");
@@ -2003,7 +2122,12 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     mainBackground = R.drawable.snow_background;
 //                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
-                    mPlayer.setVolume(0.35f, .35f);
+                    if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
+                        mPlayer.setVolume(0, 0);
+                    }
+                    else{
+                        mPlayer.setVolume(0.35f, .35f);
+                    }
                     mPlayer.start();
                     mPlayer.setLooping(true);
                     Log.i("CASE", "Case = 44");
