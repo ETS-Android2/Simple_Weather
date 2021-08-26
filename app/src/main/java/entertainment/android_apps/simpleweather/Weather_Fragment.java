@@ -94,7 +94,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
     int selectedCityName = 0;
     String resultLocationKey = "";
     String currentCity = "";
-    //    String currentCountryCode = "";
     String currentLocationCity = "";
     String weatherResponse = "";
     String currentWeatherResponse = "";
@@ -197,35 +196,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             }
         });
         final LinearLayout firstDay = (LinearLayout) rootView.findViewById(R.id.three_day_forecast_first);
-//        firstDay.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-//                    firstDay.startAnimation(scale_Up);
-//                    stopPlay();
-//                    dataStorage.setExit(true);
-//                    try {
-//                        Intent intent = new Intent(getActivity(), DetailFiveDayForecastActivity.class);
-//                        selected_tab = 0;
-//                        intent.putExtra(SELECTED_TAB, selected_tab);
-//                        intent.putExtra(ACTIVITY, ACTIVITY_VALUE);
-//                        if (dataStorage.getWhatUpdate() == false) {
-//                            intent.putExtra("cityTitle", dataStorage.getLastUpdatedCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getFiveDayForecastResponse());
-//                        } else {
-//                            intent.putExtra("cityTitle", dataStorage.getLastCurrentCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getCurrentFiveDayForecastResponse());
-//                        }
-//                        startActivity(intent);
-//                        getActivity().finish();
-//                    } catch (Exception ex) {
-//                    }
-//                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-//                    firstDay.startAnimation(scale_Down);
-//                }
-//                return true;
-//            }
-//        });
 
         firstDay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,42 +218,11 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     startActivity(intent);
                     Animatoo.animateZoom(getContext());
                     getActivity().finish();
-//                    firstDay.startAnimation(scale_Down);
                 } catch (Exception ex) {
                 }
             }
         });
         final LinearLayout secondDay = (LinearLayout) rootView.findViewById(R.id.three_day_forecast_second);
-//        secondDay.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-//                    secondDay.startAnimation(scale_Up);
-//                    stopPlay();
-//                    dataStorage.setExit(true);
-//                    try {
-//                        Intent intent = new Intent(getActivity(), DetailFiveDayForecastActivity.class);
-//                        selected_tab = 1;
-//                        intent.putExtra(SELECTED_TAB, selected_tab);
-//                        intent.putExtra(ACTIVITY, ACTIVITY_VALUE);
-//                        if (dataStorage.getWhatUpdate() == false) {
-//                            intent.putExtra("cityTitle", dataStorage.getLastUpdatedCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getFiveDayForecastResponse());
-//                        } else {
-//                            intent.putExtra("cityTitle", dataStorage.getLastCurrentCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getCurrentFiveDayForecastResponse());
-//                        }
-//                        startActivity(intent);
-//                        getActivity().finish();
-//                    } catch (Exception ex) {
-//
-//                    }
-//                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-//                    secondDay.startAnimation(scale_Down);
-//                }
-//                return true;
-//            }
-//        });
         secondDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -311,36 +250,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             }
         });
         final LinearLayout thirdDay = (LinearLayout) rootView.findViewById(R.id.three_day_forecast_third);
-//        thirdDay.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View view, MotionEvent motionEvent) {
-//                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-//                    thirdDay.startAnimation(scale_Up);
-//                    stopPlay();
-//                    dataStorage.setExit(true);
-//                    try {
-//                        Intent intent = new Intent(getActivity(), DetailFiveDayForecastActivity.class);
-//                        selected_tab = 2;
-//                        intent.putExtra(SELECTED_TAB, selected_tab);
-//                        intent.putExtra(ACTIVITY, ACTIVITY_VALUE);
-//                        if (dataStorage.getWhatUpdate() == false) {
-//                            intent.putExtra("cityTitle", dataStorage.getLastUpdatedCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getFiveDayForecastResponse());
-//                        } else {
-//                            intent.putExtra("cityTitle", dataStorage.getLastCurrentCity());
-//                            intent.putExtra("fiveDayForecastResponse", dataStorage.getCurrentFiveDayForecastResponse());
-//                        }
-//                        startActivity(intent);
-//                        getActivity().finish();
-//                    } catch (Exception ex) {
-//
-//                    }
-//                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-//                    thirdDay.startAnimation(scale_Down);
-//                }
-//                return true;
-//            }
-//        });
+
         thirdDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -378,7 +288,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 long mSeconds = getCurrentDateMiliseconds() - dataStorage.getLastUpdatedDate();
                 int newHours = (int) (mSeconds / (60 * 1000));
                 if (newHours >= 15) {
-//                if (newHours >= 2) {
                     updateWeatherData(dataStorage.getSearchCityLatitude(), dataStorage.getSearchCityLongitude());
                 } else {
                     localStorage();
@@ -465,7 +374,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             @Override
             public void onClick(View view) {
                 threeDots.setTextColor(getResources().getColor(R.color.grey));
-//                stopPlay();
                 showPopupMenu(view);
             }
         });
@@ -520,15 +428,10 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 if (scrollView != null) {
                     if (scrollView.getScrollY() == 0) {
                         mSwipeRefresh.setEnabled(true);
-//                        rootView.findViewById(R.id.refresh).setVisibility(View.INVISIBLE);
                         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
                             @Override
                             public void onRefresh() {
                                 dataStorage.setWhatUpdate(true);
-//                                LocationManager manager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-//                                if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-//                                    noGPSLayout.setVisibility(View.VISIBLE);
-//                                }
                                 localStorage();
                                 ConnectivityManager cm =
                                         (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -579,27 +482,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 return true;
             }
         });
-//        fiveDayBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                stopPlay();
-//                dataStorage.setExit(true);
-//                try {
-//                    Intent intent = new Intent(getActivity(), FiveDayForecastActivity.class);
-//                    if (dataStorage.getWhatUpdate() == false) {
-//                        intent.putExtra("cityTitle", dataStorage.getLastUpdatedCity());
-//                        intent.putExtra("fiveDayForecastResponse", dataStorage.getFiveDayForecastResponse());
-//                    } else {
-//                        intent.putExtra("cityTitle", dataStorage.getLastCurrentCity());
-//                        intent.putExtra("fiveDayForecastResponse", dataStorage.getCurrentFiveDayForecastResponse());
-//                    }
-//                    startActivity(intent);
-//                    getActivity().finish();
-//                } catch (Exception ex) {
-//
-//                }
-//            }
-//        });
         Log.i("DATASTOTAGE", "DATASTOTAGE" + dataStorage.getExit());
         if (dataStorage.getLastUpdatedCity().isEmpty() && dataStorage.getLastCurrentCity().isEmpty()) {
             fiveDayBtn.setVisibility(View.INVISIBLE);
@@ -649,7 +531,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 long milliseconds = getCurrentDateMiliseconds() - dataStorage.getLastCurrentUpdateDate();
                 int hours = (int) (milliseconds / (60 * 1000));
                 if (hours >= 15) {
-//                if (hours >= 2) {
                     ConnectivityManager cm =
                             (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                     boolean isConnected = cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
@@ -693,7 +574,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                 for (Location location : locationResult.getLocations()) {
                                                     if (location != null) {
                                                         try {
-//                                                            stopPlay();
                                                             currentLatitude = Double.toString(location.getLatitude());
                                                             currentLongitude = Double.toString(location.getLongitude());
                                                             dataStorage.setLatitude(currentLatitude);
@@ -729,7 +609,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 long mSeconds = getCurrentDateMiliseconds() - dataStorage.getLastUpdatedDate();
                 int newHours = (int) (mSeconds / (60 * 1000));
                 if (newHours >= 15) {
-//                if (newHours >= 2) {
                     ConnectivityManager cm =
                             (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                     boolean isConnected = cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
@@ -830,8 +709,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                         dialog.cancel();
                         if (dataStorage.getLatitude() != null && dataStorage.getLongitude() != null)
                             if (!dataStorage.getLatitude().equals("") && !dataStorage.getLongitude().equals("")) {
-//                                        Toast.makeText(getContext(), "GPS is off !!! ", Toast.LENGTH_SHORT).show();
-
                                 mSwipeRefresh.post(new Runnable() {
                                     @Override
                                     public void run() {
@@ -960,10 +837,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                 localStorage();
                                 try {
                                     JSONObject jsonObject = new JSONObject(result);
-//                                    JSONArray jsonarray = new JSONArray(result);
-//                                    JSONObject jsonobject = jsonarray.getJSONObject(0);
                                     key = jsonObject.getString("Key");
-//                                    currentCity = jsonObject.getJSONObject("AdministrativeArea").getString("LocalizedName");
                                     if (isSelected) {
                                         String[] array = searchCityArrayList.get(selectedCityName).getDisplayName().split("[, ]+");
                                         currentCity = array[0];
@@ -972,21 +846,13 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                             currentCity = dataStorage.getLastUpdatedCity();
                                         }
                                     }
-
-//                                    currentCity = jsonObject.getString("LocalizedName");
-//                                    if(currentCity.equals("")){
-//                                        currentCity = jsonObject.getJSONObject("AdministrativeArea").getString("LocalizedName");
-//                                    }
-//                                    currentCountryCode = jsonobject.getJSONObject("Country").getString("ID");
                                     if (key != null && !currentCity.equals("")) {
-//                                    if (key != null) {
                                         new Thread() {
                                             public void run() {
                                                 try {
                                                     dataStorage.setLastUpdatedCity(currentCity);
                                                     dataStorage.setSearchCityLatitude(latitude);
                                                     dataStorage.setSearchCityLongitude(longitude);
-//                                                    dataStorage.setLastUpdatedCountryCode(currentCountryCode);
                                                     URL weatherURL = new ForecastConnection().buildUrlForWeather(key);
                                                     weatherResponse = new ForecastConnection().getResponseWeather(weatherURL);
                                                     if (weatherResponse == null || weatherResponse.equals("") ||
@@ -1111,41 +977,29 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     if (resultLocation == null || resultLocation.equals("ExceptionHappened")) {
                         handler.post(new Runnable() {
                             public void run() {
-//                                stopPlay();
                                 localStorage();
-//                                details.setVisibility(View.INVISIBLE);
-//                                details.setVisibility(View.GONE);
                                 myToats2.show();
                             }
                         });
                     } else if (resultLocation.equals("[]")) {
                         handler.post(new Runnable() {
                             public void run() {
-//                                details.setVisibility(View.INVISIBLE);
-//                                details.setVisibility(View.GONE);
                                 myToats1.show();
-//                                Log.i(TAG, "lastCity" +new DataStorage(getActivity()).getCity()); не менять
                             }
                         });
                     } else {
                         handler.post(new Runnable() {
                             public void run() {
-//                                stopPlay();
                                 localStorage();
-//                                details.setVisibility(View.VISIBLE);
                                 try {
                                     JSONArray jsonarray = new JSONArray(resultLocation);
                                     JSONObject jsonobject = jsonarray.getJSONObject(0);
                                     resultLocationKey = jsonobject.getString("Key");
                                     currentLocationCity = jsonobject.getString("LocalizedName");
-
-
-                                    //--
                                     if (resultLocationKey != null && !currentLocationCity.equals("")) {
                                         new Thread() {
                                             public void run() {
                                                 try {
-                                                    //Для погоды - начало
                                                     dataStorage.setLastCurrentCity(currentLocationCity);
                                                     URL currentWeatherURL = new ForecastConnection().buildUrlForWeather(resultLocationKey);
                                                     currentWeatherResponse = new ForecastConnection().getResponseWeather(currentWeatherURL);
@@ -1164,12 +1018,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                             public void run() {
                                                                 try {
                                                                     dataStorage.setWhatUpdate(true);
-//                                                                     renderWeather(currentWeatherResponse);
-
-                                                                    //*******************
                                                                     dataStorage.setCurrentWeatherResponse(currentWeatherResponse);
-                                                                    //*******************
-
                                                                     if (resultLocationKey != null) {
                                                                         new Thread() {
                                                                             public void run() {
@@ -1191,12 +1040,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                                 try {
                                                                                                     setInitialData(currentHourlyResponse);
                                                                                                     dataStorage.setCurrentHourlyResponse(currentHourlyResponse);
-//                                                                                                    RecyclerView recyclerView = rootView.findViewById(R.id.recycle_view);
-
-                                                                                                    // создаем адаптер
-//                                                                                                    HourlyRecycleViewAdapter adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList);
                                                                                                     adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList, Weather_Fragment.this);
-                                                                                                    // устанавливаем для списка адаптер
                                                                                                     recyclerView.setAdapter(adapter);
                                                                                                     if (resultLocationKey != null) {
                                                                                                         new Thread() {
@@ -1219,8 +1063,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                                                             public void run() {
                                                                                                                                 try {
                                                                                                                                     dataStorage.setCurrentFiveDayForecastResponse(currentFiveDayForecastResponse);
-                                                                                                                                    //-----------------------------------------
-//                                                                                                                                     renderFiveDayForecast(currentFiveDayForecastResponse);
+                                                                                              
                                                                                                                                     dataStorage.setLastCurrentUpdateWeather(lastUpdateDate());
                                                                                                                                     dataStorage.setLastCurrentUpdateDate(getLastUpdateMilisecond());
                                                                                                                                     renderWeather(currentWeatherResponse);
@@ -1229,18 +1072,14 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                                                                     changeLastUpdateCity.setVisibility(View.VISIBLE);
                                                                                                                                     if (!dataStorage.getLastUpdatedCity().isEmpty()) {
                                                                                                                                         changeLastUpdateCity.setText(dataStorage.getLastUpdatedCity());
-                                                                                                                                    }
-//                                                                                                                                     lastUpdate.setText(getString(R.string.last_update, dataStorage.getLastCurrentUpdateWeather()));
+                                                                                                                                    }                                                                                                                                    
                                                                                                                                     mSwipeRefresh.setRefreshing(false);
                                                                                                                                     fiveDayBtn.setVisibility(View.VISIBLE);
                                                                                                                                     accuweatherLogo.setVisibility(View.VISIBLE);
                                                                                                                                     gridlayout.setVisibility(View.VISIBLE);
                                                                                                                                     sunriseIcon.setVisibility(View.VISIBLE);
                                                                                                                                     sunsetIcon.setVisibility(View.VISIBLE);
-                                                                                                                                    myToats4.show();
-
-
-                                                                                                                                    //-----------------------------------------
+                                                                                                                                    myToats4.show();                                                                               
 
                                                                                                                                 } catch (Exception ex) {
                                                                                                                                 }
@@ -1302,10 +1141,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     if (resultLocation == null || resultLocation.equals("ExceptionHappened")) {
                         handler.post(new Runnable() {
                             public void run() {
-//                                stopPlay();
                                 localStorage();
-//                                details.setVisibility(View.INVISIBLE);
-//                                details.setVisibility(View.GONE);
                                 myToats2.show();
                                 mSwipeRefresh.setRefreshing(false);
                             }
@@ -1313,32 +1149,23 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                     } else if (resultLocation.equals("[]")) {
                         handler.post(new Runnable() {
                             public void run() {
-//                                details.setVisibility(View.INVISIBLE);
-//                                details.setVisibility(View.GONE);
                                 myToats1.show();
                                 mSwipeRefresh.setRefreshing(false);
-//                                Log.i(TAG, "lastCity" +new DataStorage(getActivity()).getCity()); не менять
                             }
                         });
                     } else {
                         handler.post(new Runnable() {
                             public void run() {
-//                                stopPlay();
                                 localStorage();
-//                                details.setVisibility(View.VISIBLE);
                                 try {
                                     JSONArray jsonarray = new JSONArray(resultLocation);
                                     JSONObject jsonobject = jsonarray.getJSONObject(0);
                                     resultLocationKey = jsonobject.getString("Key");
                                     currentLocationCity = jsonobject.getString("LocalizedName");
-
-
-                                    //--
                                     if (resultLocationKey != null && !currentLocationCity.equals("")) {
                                         new Thread() {
                                             public void run() {
                                                 try {
-                                                    //Для погоды - начало
                                                     dataStorage.setLastCurrentCity(currentLocationCity);
                                                     URL currentWeatherURL = new ForecastConnection().buildUrlForWeather(resultLocationKey);
                                                     currentWeatherResponse = new ForecastConnection().getResponseWeather(currentWeatherURL);
@@ -1357,12 +1184,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                             public void run() {
                                                                 try {
                                                                     dataStorage.setWhatUpdate(true);
-//                                                                     renderWeather(currentWeatherResponse);
-
-                                                                    //*******************
                                                                     dataStorage.setCurrentWeatherResponse(currentWeatherResponse);
-                                                                    //*******************
-
                                                                     if (resultLocationKey != null) {
                                                                         new Thread() {
                                                                             public void run() {
@@ -1384,12 +1206,7 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                                 try {
                                                                                                     setInitialData(currentHourlyResponse);
                                                                                                     dataStorage.setCurrentHourlyResponse(currentHourlyResponse);
-//                                                                                                    RecyclerView recyclerView = rootView.findViewById(R.id.recycle_view);
-
-                                                                                                    // создаем адаптер
-//                                                                                                    HourlyRecycleViewAdapter adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList);
                                                                                                     adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList, Weather_Fragment.this);
-                                                                                                    // устанавливаем для списка адаптер
                                                                                                     recyclerView.setAdapter(adapter);
                                                                                                     if (resultLocationKey != null) {
                                                                                                         new Thread() {
@@ -1411,24 +1228,18 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                                                                                         handler.post(new Runnable() {
                                                                                                                             public void run() {
                                                                                                                                 try {
-                                                                                                                                    dataStorage.setCurrentFiveDayForecastResponse(currentFiveDayForecastResponse);
-                                                                                                                                    //-----------------------------------------
-//                                                                                                                                     renderFiveDayForecast(currentFiveDayForecastResponse);
+                                                                                                                                    dataStorage.setCurrentFiveDayForecastResponse(currentFiveDayForecastResponse);                                                                                                                                    
                                                                                                                                     dataStorage.setLastCurrentUpdateWeather(lastUpdateDate());
                                                                                                                                     dataStorage.setLastCurrentUpdateDate(getLastUpdateMilisecond());
                                                                                                                                     renderWeather(currentWeatherResponse);
-                                                                                                                                    renderFiveDayForecast(currentFiveDayForecastResponse);
-//                                                                                                                                     lastUpdate.setText(getString(R.string.last_update, dataStorage.getLastCurrentUpdateWeather()));
+                                                                                                                                    renderFiveDayForecast(currentFiveDayForecastResponse);                                                                                                                                  
                                                                                                                                     mSwipeRefresh.setRefreshing(false);
                                                                                                                                     fiveDayBtn.setVisibility(View.VISIBLE);
                                                                                                                                     accuweatherLogo.setVisibility(View.VISIBLE);
                                                                                                                                     sunriseIcon.setVisibility(View.VISIBLE);
                                                                                                                                     sunsetIcon.setVisibility(View.VISIBLE);
                                                                                                                                     gridlayout.setVisibility(View.VISIBLE);
-                                                                                                                                    myToats4.show();
-
-
-                                                                                                                                    //-----------------------------------------
+                                                                                                                                    myToats4.show();                                                                                                                                   
 
                                                                                                                                 } catch (Exception ex) {
                                                                                                                                 }
@@ -1458,7 +1269,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                                             }
                                                         });
                                                     }
-                                                    //Для погоды - конец
                                                 } catch (Exception ex) {
                                                 }
                                             }
@@ -1641,9 +1451,8 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
         SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE ',' dd-MMMM-yyyy ',' HH:mm:ss ", rus);
         String data = dateFormat.format(currentDate);
         String resultData = "";
-        resultData = resultData + data.substring(0, 1).toUpperCase(); //первый символ делаем заглавным
+        resultData = resultData + data.substring(0, 1).toUpperCase(); 
         for (int i = 1; i < data.length(); i++) {
-            // смотрим, был ли слева пробел:
             if (" ".equals(data.substring(i - 1, i)) || "-".equals(data.substring(i - 1, i)))
                 resultData = resultData + data.substring(i, i + 1).toUpperCase();
             else
@@ -1874,7 +1683,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 20:
                     icon = R.drawable.big_mostly_cloudy_flurries;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1889,7 +1697,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 21:
                     icon = R.drawable.big_partly_sunny_flurries;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1904,7 +1711,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 22:
                     icon = R.drawable.big_snow;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1919,7 +1725,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 23:
                     icon = R.drawable.big_mostly_cloudy_snow;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1938,7 +1743,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 25:
                     icon = R.drawable.big_sleet;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1953,7 +1757,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 26:
                     icon = R.drawable.big_freezing_rain;
                     mainBackground = R.drawable.rain_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1968,7 +1771,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 29:
                     icon = R.drawable.big_rain_and_snow;
                     mainBackground = R.drawable.rain_with_snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -1991,7 +1793,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 32:
                     icon = R.drawable.big_windy;
                     mainBackground = R.drawable.windy_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(5));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2006,7 +1807,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 33:
                     icon = R.drawable.big_clear;
                     mainBackground = R.drawable.clear_sky_night;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(7));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2045,7 +1845,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 39:
                     icon = R.drawable.big_partly_cloudy_showers_night;
                     mainBackground = R.drawable.showers_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2060,7 +1859,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 40:
                     icon = R.drawable.big_mostly_cloudy_showers_night;
                     mainBackground = R.drawable.showers_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(1));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2075,7 +1873,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 41:
                     icon = R.drawable.big_partly_cloudy_t_storms_night;
                     mainBackground = R.drawable.t_storm_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(2));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2090,7 +1887,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 42:
                     icon = R.drawable.big_mostly_cloudy_t_storms_night;
                     mainBackground = R.drawable.t_storm_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(2));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2105,7 +1901,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 43:
                     icon = R.drawable.big_mostly_cloudy_flurries_night;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(5));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2120,7 +1915,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 case 44:
                     icon = R.drawable.big_mostly_cloudy_snow_night;
                     mainBackground = R.drawable.snow_background;
-//                    stopPlay();
                     mPlayer = MediaPlayer.create(getContext(), constants.getSong(6));
                     if(audioManager.getRingerMode() == 0 || audioManager.getRingerMode() == 1){
                         mPlayer.setVolume(0, 0);
@@ -2170,8 +1964,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
         int icon3 = 0;
         try {
             JSONObject jsonObject = new JSONObject(fiveDayForecastResponse);
-//            String responseTime = jsonObject.getJSONObject("Headline").getString("EffectiveDate");
-
             JSONArray jsonArray = jsonObject.getJSONArray("DailyForecasts");
             JSONObject resultsObj1 = jsonArray.getJSONObject(0);
 
@@ -2185,9 +1977,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
 
 
             String sunrise = renderSunTime(responseSunRise);
-
-//            dataStorage.setLastSunrise(getString(R.string.sunrise, renderSunTime(responseSunRise)));//--
-
             String responseSunSet = resultsObj1.getJSONObject("Sun").getString("Set");
             if (responseSunSet.equals("") || responseSunSet == null) {
                 sunSet.setText(R.string.not_available);
@@ -2195,26 +1984,14 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 sunSet.setText(getString(R.string.sunset, renderSunTime(responseSunSet)));
             }
             String sunset = renderSunTime(responseSunSet);
-
-
-//            String responseTime = resultsObj1.getString("Date");
-
-//            String time = renderSunTime(responseTime);
             String time = renderSunTime(timeForThreeDayForecast);
-
-//            Log.i(TAG, "responseTime ----------------------------" + responseTime);
             Log.i(TAG, "responseTime ----------------------------" + timeForThreeDayForecast);
-//            LocalTime time1 = LocalTime.parse(time);
             LocalTime time1 = LocalTime.parse(time);
             LocalTime time2 = LocalTime.parse(sunset);
             LocalTime time3 = LocalTime.parse(sunrise);
             Log.i(TAG, "time1 ----------------------------" + time1);
-//            LocalTime time2 = LocalTime.parse("21:00:00");
-//            LocalTime time3 = LocalTime.parse("06:00:00");
-
             int position1 = 0;
             String dayType1 = "";
-//            if (time1.compareTo(time3) > 0 && time1.compareTo(time2) < 0) {
             if (time1.compareTo(time3) > 0 && time1.compareTo(time2) < 0) {
                 percentOfRain = Integer.toString(resultsObj1.getJSONObject("Day").getInt("RainProbability")) + "%";
                 percentOfThuder = Integer.toString(resultsObj1.getJSONObject("Day").getInt("ThunderstormProbability")) + "%";
@@ -2222,12 +1999,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 rain.setText(getString(R.string.rain, percentOfRain));
                 thunder.setText(getString(R.string.thunder, percentOfThuder));
                 snow.setText(getString(R.string.snow, percentOfSnow));
-
-                //--
-//                dataStorage.setRain(getString(R.string.rain, percentOfRain));
-//                dataStorage.setThunder(getString(R.string.thunder, percentOfThuder));
-//                dataStorage.setSnow(getString(R.string.snow, percentOfSnow));
-                //--
                 int dayIcon1 = resultsObj1.getJSONObject("Day").getInt("Icon");
 
                 for (int i = 0; i < iconArray.iconsNumber.length; i++) {
@@ -2244,13 +2015,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 rain.setText(getString(R.string.rain, percentOfRain));
                 thunder.setText(getString(R.string.thunder, percentOfThuder));
                 snow.setText(getString(R.string.snow, percentOfSnow));
-
-                //--
-//                dataStorage.setRain(getString(R.string.rain, percentOfRain));
-//                dataStorage.setThunder(getString(R.string.thunder, percentOfThuder));
-//                dataStorage.setSnow(getString(R.string.snow, percentOfSnow));
-                //--
-
                 int nightIcon1 = resultsObj1.getJSONObject("Night").getInt("Icon");
                 for (int i = 0; i < iconArray.iconsNumber.length; i++) {
                     if (nightIcon1 == iconArray.iconsNumber[i]) {
@@ -2266,40 +2030,17 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             String minTemp1 = Integer.toString((int) resultsObj1.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value"));
             String maxTemp1 = Integer.toString((int) resultsObj1.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value"));
 
-//            String dayType1 = resultsObj1.getJSONObject("Day").getString("IconPhrase");
-
-
-//            String responseSunRise = resultsObj1.getJSONObject("Sun").getString("Rise");
-//            sunRise.setText(getString(R.string.sunrise, renderSunTime(responseSunRise)));
-//
-////            dataStorage.setLastSunrise(getString(R.string.sunrise, renderSunTime(responseSunRise)));//--
-//
-//            String responseSunSet = resultsObj1.getJSONObject("Sun").getString("Set");
-//            sunSet.setText(getString(R.string.sunset, renderSunTime(responseSunSet)));
-
-//            dataStorage.setLastSunset(getString(R.string.sunset, renderSunTime(responseSunSet)));//--
-
             next_day_first_icon.setImageResource(icon1);
-//            next_day_first.setText(dayOfWeek1);
             next_day_first.setText(getString(R.string.today));
             next_day_first_type.setText(dayType1);
             next_day_first_temperature.setText(getString(R.string.day_night_temp, maxTemp1, minTemp1));
             separator_1.setText(R.string.separator);
-
-            //--
-//            dataStorage.setFirstDayIcon(icon1);
-//            dataStorage.setFirstDay(dayOfWeek1);
-//            dataStorage.setFirstDayType(dayType1);
-//            dataStorage.setFirstDayTemperature(getString(R.string.day_night_temp, maxTemp1, minTemp1));
-            //--
-
-            //----------------------------------
             JSONObject resultsObj2 = jsonArray.getJSONObject(1);
             String responseDate2 = resultsObj2.getString("Date");
             String dayOfWeek2 = renderDayOfWeek(responseDate2);
             String minTemp2 = Integer.toString((int) resultsObj2.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value"));
             String maxTemp2 = Integer.toString((int) resultsObj2.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value"));
-//            String dayType2 = resultsObj2.getJSONObject("Day").getString("IconPhrase");
+
             String dayType2 = "";
             int position2 = 0;
             if (time1.compareTo(time3) > 0 && time1.compareTo(time2) < 0) {
@@ -2326,21 +2067,14 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             next_day_second_type.setText(dayType2);
             next_day_second_temperature.setText(getString(R.string.day_night_temp, maxTemp2, minTemp2));
 
-            //--
-//            dataStorage.setSecondDayIcon(icon2);
-//            dataStorage.setSecondDay(dayOfWeek2);
-//            dataStorage.setSecondDayType(dayType2);
-//            dataStorage.setSecondDayTemperature(getString(R.string.day_night_temp, maxTemp2, minTemp2));
-            //--
-
             separator_2.setText(R.string.separator);
-            //----------------------------------
+
             JSONObject resultsObj3 = jsonArray.getJSONObject(2);
             String responseDate3 = resultsObj3.getString("Date");
             String dayOfWeek3 = renderDayOfWeek(responseDate3);
             String minTemp3 = Integer.toString((int) resultsObj3.getJSONObject("Temperature").getJSONObject("Minimum").getDouble("Value"));
             String maxTemp3 = Integer.toString((int) resultsObj3.getJSONObject("Temperature").getJSONObject("Maximum").getDouble("Value"));
-//            String dayType3 = resultsObj3.getJSONObject("Day").getString("IconPhrase");
+
             String dayType3 = "";
 
             int position3 = 0;
@@ -2371,18 +2105,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
             next_day_third_temperature.setText(getString(R.string.day_night_temp, maxTemp3, minTemp3));
             separator_3.setText(R.string.separator);
 
-            //--
-//            dataStorage.setThirdDayIcon(icon3);
-//            dataStorage.setThirdDay(dayOfWeek3);
-//            dataStorage.setThirdDayType(dayType3);
-//            dataStorage.setThirdDayTemperature(getString(R.string.day_night_temp, maxTemp3, minTemp3));
-//            //--
-
-            //--
-//            dataStorage.setSeparator(R.string.separator);
-            //--
-
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -2394,18 +2116,15 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
         String res = "";
         String resString = "";
         for (int i = 1; i < responseDate.length(); i++) {
-            // смотрим, был ли слева пробел:
             if ("T".equals(responseDate.substring(i - 1, i)))
                 res = responseDate.substring(i);
         }
 
         for (int i = 1; i < res.length(); i++) {
-            // смотрим, был ли слева пробел:
             if ("+".equals(res.substring(i - 1, i)) || "-".equals(res.substring(i - 1, i)))
                 resultData = res.substring(0, i - 1);
         }
         for (int i = 1; i < resultData.length(); i++) {
-            // смотрим, был ли слева пробел:
             if (":".equals(resultData.substring(i - 1, i)))
                 resString = res.substring(0, i - 1);
         }
@@ -2417,7 +2136,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
         String resultDate = "";
         String dayTitle = "";
         for (int i = 1; i < responseDate.length(); i++) {
-            // смотрим, был ли слева пробел:
             if ("T".equals(responseDate.substring(i - 1, i)))
                 resultDate = responseDate.substring(0, i - 1);
         }
@@ -2486,62 +2204,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                 }
             }
         }
-
-
-//        cityTitle.setText(dataStorage.getLastUpdatedCity());
-//        lastUpdate.setText(dataStorage.getLastUpdateWeather());
-//        mainImage.setImageResource(dataStorage.getCurrentWeatherIcon());
-//        weatherType.setText(dataStorage.getLastCurrentWeatherType());
-//        currentDeegrees.setText(dataStorage.getLastCurrentDegrees());
-//        sunRise.setText(dataStorage.getLastSunrise());
-//        sunriseIcon.setImageResource(R.drawable.sunrise);
-//        sunSet.setText(dataStorage.getLastSunset());
-//        sunsetIcon.setImageResource(R.drawable.sunset);
-//
-//        next_day_first_icon.setImageResource(dataStorage.getFirstDayIcon());
-//        next_day_first.setText(dataStorage.getFirstDay());
-//        next_day_first_type.setText(dataStorage.getFirstDayType());
-//        next_day_first_temperature.setText(dataStorage.getFirstDayTemperature());
-//        separator_1.setText(R.string.separator);
-//        separator_2.setText(R.string.separator);
-//        separator_3.setText(R.string.separator);
-//
-//        next_day_second_icon.setImageResource(dataStorage.getSecondDayIcon());
-//        next_day_second.setText(dataStorage.getSecondDay());
-//        next_day_second_type.setText(dataStorage.getSecondDayType());
-//        next_day_second_temperature.setText(dataStorage.getSecondDayTemperature());
-//
-//        next_day_third_icon.setImageResource(dataStorage.getThirdDayIcon());
-//        next_day_third.setText(dataStorage.getThirdDay());
-//        next_day_third_type.setText(dataStorage.getThirdDayType());
-//        next_day_third_temperature.setText(dataStorage.getThirdDayTemperature());
-//
-//        current_wind.setText(dataStorage.getWind());
-//        img_wind.setImageResource(R.drawable.icon_smal_wind);
-//
-//        real_feel.setText(dataStorage.getRealFeel());
-//        img_real_feel.setImageResource(R.drawable.icon_small_temp);
-//
-//        visibility.setText(dataStorage.getVisibility());
-//        img_visibility.setImageResource(R.drawable.icon_small_visibility);
-//
-//        pressure.setText(dataStorage.getPressure());
-//        img_pressure.setImageResource(R.drawable.icon_small_pressure);
-//
-//        rain.setText(dataStorage.getRain());
-//        thunder.setText(dataStorage.getThunder());
-//        snow.setText(dataStorage.getSnow());
-//
-//        mainBackgroundImage.setImageResource(dataStorage.getMainBackgroundImage());
-//        if (dataStorage.getHourlyResponse() != null) {
-//            if (!dataStorage.getHourlyResponse().equals("")) {
-//                setInitialData(dataStorage.getHourlyResponse());
-//                adapter = new HourlyRecycleViewAdapter(getContext(), hourlyList);
-//                recyclerView.setAdapter(adapter);
-//            }
-//        }
-
-
     }
 
     private List<SearchCity> searchCityArrayList;
@@ -2564,10 +2226,8 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                         isSelected = true;
                                         selectedCityName = resultChoice;
                                         changeCity(searchCityArrayList.get(resultChoice).getLatitude(), searchCityArrayList.get(resultChoice).getLongitude());
-//                                        Log.i("searchCityArrayList", "searchCityArrayList = " + searchCityArrayList.get(resultChoice).getLatitude() + ", " + searchCityArrayList.get(resultChoice).getLongitude());
+
                                     }
-//                                    else
-//                                        Toast.makeText(getContext(), "Nothing selected", Toast.LENGTH_SHORT);
                                 }
                             }
                         });
@@ -2588,12 +2248,6 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                             autoCompleteTextView.setHint(R.string.edit_city);
 
                             autoCompleteTextView.setAdapter(new CitySuggestAdapter(getContext(), android.R.layout.simple_list_item_1));
-
-
-//                        final EditText editCity = new EditText(getActivity());
-//                        editCity.setInputType(InputType.TYPE_CLASS_TEXT);
-//                        editCity.setHint(R.string.edit_city);
-//                        alertDialog.setView(editCity);
                             builder.setView(autoCompleteTextView);
                             final AlertDialog alertDialog = builder.create();
                             alertDialog.show();
@@ -2604,14 +2258,9 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
                                 @Override
                                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                                     searchCityArrayList = PlaceAPI.getSearchCityArrayList();
-//                                Log.i("getSelectedItem", "item = " +  adapterView.getSelectedItem());
 
                                     resultChoice = i;
                                     Log.i("resultChoice", "resultChoice = " + i);
-//                                strArray = resultChoice.split("[, ]+");
-//                                for(int n = 0; n<strArray.length;n++){
-//                                    Log.i("STRARRAY", "WORDS = " + strArray[n] );
-//                                }
                                     ((AlertDialog) alertDialog).getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
                                 }
                             });
@@ -2636,6 +2285,5 @@ public class Weather_Fragment extends Fragment implements RecycleViewListener {
     public void changeCity(String latitude, String longitude) {
         dataStorage.setWhatUpdate(false);
         updateWeatherData(latitude, longitude);
-//        dataStorage.setCity(city);
     }
 }
